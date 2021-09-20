@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<link rel="shortcut icon" href="#">
+	
+	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<script src="/webjars/sockjs-client/sockjs.min.js"></script>
+	<script src="/webjars/stomp-websocket/stomp.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+
+	<!-- <link href="./css/bootstrap.min.css" rel="stylesheet">
+	<script src="./js/sockjs.min.js"></script>
+	<script src="./js/stomp.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./css/style.css"> -->
+
+</head>
+<body>
+	<noscript>
+		<h2 style="color: #ff0000">Seems your browser doesn't support
+			Javascript! Websocket relies on Javascript being enabled. Please
+			enable Javascript and reload this page!</h2>
+	</noscript>
+	<div id="main-content">
+		<!-- start screen -->
+		<div class="container mt-4" id="joining_screen">
+			<div class="joining_screen">
+				<div class="text-center mt-5">
+					<p>Choose your audio and video setting for the</p>
+					<h3>
+						<b>Meeting</b>
+					</h3>
+				</div>
+				<div class="content mt-5">
+					<div class="col-md-12 row m-0 dialog-box">
+						<div class="col-md-7">
+							<div class="col-12">
+								<video id="local_camera" muted class="video" src=""></video>
+							</div>
+							<div class="col-12 video-icons">
+								<div class="flexcol" id="mic_on">
+									<img src="./utils/images/mic.png" alt="">
+								</div>
+								<div class="flexcol d-none off-mode" id="mic_off">
+									<img src="./utils/images/micOff.png" alt="">
+								</div>
+								<div class="flexcol" id="camera_on">
+									<img src="./utils/images/camera.png" alt="">
+								</div>
+								<div class="flexcol d-none off-mode" id="camera_off">
+									<img src="./utils/images/cameraOff.png" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5">
+							<div class="col-md-12">
+								<div class="form-group mb-2 pl-3">
+									<p>
+										<h3>
+											Click to join meeting
+										</h3>
+									</p>
+									<div class="col-10 p-0">
+										<div class="input-group mb-3">
+											<input type="text" id="username" class="form-control" placeholder="Enter your name">
+											<div class="input-group-append">
+												<button id="join_meeting" class="btn btn-primary" type="button">Join Meeting</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+		<div id="conversation">
+			<div id="mainscreen-container" class="full-screen">
+				<div class="screen-header">Header</div>
+				<div class="col-12 row p-0 m-0 full-screen">
+					<div class="col-md-10 main-video-container">
+						<video id="conference_room" muted class="main_video" src=""></video>
+					</div>
+					<div class="col-md-2 p-2">
+						<div id="remote_users">
+						</div>
+					</div>
+				</div>
+				<div class="bottom-panel">
+					<div class="bottom-wing-panel bottom-wing-left">
+						<div class="action-icon" id="main_mic_on">
+							<img src="./utils/images/resume.png" alt="">
+						</div>
+					</div>
+					<div class="main-screen-video-icons">
+						<div class="action-icon" id="share_screen">
+							<img src="./utils/images/recordingStart.png" alt="">
+						</div>
+	
+						<div class="action-icon" id="main_mic_on">
+							<img src="./utils/images/mic.png" alt="">
+						</div>
+	
+						<div class="action-icon d-none off-mode" id="main_mic_off">
+							<img src="./utils/images/micOff.png" alt="">
+						</div>
+						
+						<div class="action-icon" id="main_camera_on">
+							<img src="./utils/images/camera.png" alt="">
+						</div>
+	
+						<div class="action-icon d-none off-mode" id="main_camera_off">
+							<img src="./utils/images/cameraOff.png" alt="">
+						</div>
+	
+						<div class="action-icon" id="share_screen">
+							<img src="./utils/images/switchCameraScreenSharing.png" alt="">
+						</div>
+	
+						<div class="action-icon hand-up" id="hand_up">
+							<a id="end_call">
+								<img src="./utils/images/hangUp.png" alt="">
+							</a>
+						</div>
+					</div>
+					<div class="bottom-wing-panel bottom-wing-right">
+						<div class="action-icon" id="main_mic_on">
+							<img src="./utils/images/pause.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="./js/appSetting/constants.js" type='module'></script>
+<script src="./js/appSetting/store.js" type='module'></script>
+<script src="./js/webSocketHandler/webRTCInitializer.js" type='module'></script>	
+<script src="./js/webSocketHandler/webRTCSocketHandler.js" type='module'></script>
+<script src="./js/webSocketHandler/controllerApi.js" type='module'></script>
+<script src="./js/uiManager/handleAppUI.js" type='module'></script>
+<script src="./js/eventBinding/appEventBinding.js" type='module'></script>
+<script src="./js/index.js" type='module'></script>
+</html>
