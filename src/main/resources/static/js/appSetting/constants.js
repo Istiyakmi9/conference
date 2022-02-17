@@ -1,6 +1,6 @@
 //export const WebSocketServerUrl = "http://localhost:8080/server";
 export const WebSocketServerUrl = "ws://localhost:8080/conference";
-export const WebSocketServerSecureUrl = "wss://localhost:8443/conference";
+export const WebSocketServerSecureUrl = "wss://192.168.0.101:8443/conference";
 
 export const CHAT = "CHAT";
 export const CHAT_STRANGER = "CHAT_STRANGER";

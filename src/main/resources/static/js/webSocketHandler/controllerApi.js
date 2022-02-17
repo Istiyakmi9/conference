@@ -1,4 +1,5 @@
 const baseUrl = "http://localhost:8080";
+const baseSSLUrl = "https://192.168.0.101:8443";
 
 export const post = (url, data) => {
     var xhr = new XMLHttpRequest();
